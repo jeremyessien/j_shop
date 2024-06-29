@@ -30,7 +30,7 @@ To run the app locally, follow these steps:
 1. **Clone the Repository:**
 
    ```sh
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/jeremyessien/j_shop.git
    cd your-repo
    
 2. **Get packages**
