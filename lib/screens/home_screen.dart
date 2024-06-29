@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:j_shop/components/home_drawer.dart';
+
+import '../package.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:j_shop/model/product.dart';
-import 'package:j_shop/model/shop.dart';
 import 'package:provider/provider.dart';
+
+import '../core/model/model.dart';
+import '../screens/product_details.dart';
+import '../theme/light_mode.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
@@ -11,7 +13,7 @@ class ProductTile extends StatelessWidget {
     showDialog(
         context: (context),
         builder: (context) => AlertDialog(
-              content: Text('Add this to cart?'),
+              content: const Text('Add this to cart?'),
               actions: [
                 MaterialButton(
                   onPressed: () => Navigator.pop(context),
@@ -30,63 +32,78 @@ class ProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              AspectRatio(
-                aspectRatio: 1,
-                child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: const EdgeInsets.all(20),
-                    child: const Icon(Icons.favorite)),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                product.name,
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                product.description,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary,
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductDetailsScreen(product: product),
+          ),
+        );
+      },
+      child: Container(
+        width: screenWidth * 0.8,
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: AppColor().primary,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                AspectRatio(
+                  aspectRatio: 1,
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: AppColor().secondary,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding: const EdgeInsets.all(20),
+                      child:  Image.network(product.image)),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '\$${product.price.toStringAsFixed(2)}',
-                style: const TextStyle(),
-              ),
-              Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(12)),
-                  child:
-                      IconButton(onPressed: () {}, icon: const Icon(Icons.add)))
-            ],
-          ),
-        ],
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  product.title,
+                  style:
+                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  product.description,
+                  maxLines: 3,
+                  style: TextStyle(
+                    overflow: TextOverflow.ellipsis,
+                    color: AppColor().inversePrimary,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '\$${product.price.toStringAsFixed(2)}',
+                  style: const TextStyle(),
+                ),
+                Container(
+                    decoration: BoxDecoration(
+                        color: AppColor().secondary,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: IconButton(
+                        onPressed: () => addToCart(context),
+                        icon: const Icon(Icons.add)))
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
