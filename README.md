@@ -23,8 +23,9 @@ This project uses the **MVVM (Model-View-ViewModel)** architecture with **Provid
 
 - Uses `ChangeNotifier` from the `provider` package to manage and notify state changes, ensuring the UI reacts to state updates.
 
-### Benefits
 
-- **Separation of Concerns**: Business logic and UI logic are clearly separated.
-- **Reactive UI**: UI components respond to state changes managed by ViewModels.
-- **Maintainability and Scalability**: Organized code structure facilitates easier maintenance and project growth.
+### Download APK
+
+You can download the APK from the following link:
+
+[Download APK](https://drive.google.com/file/d/1XTTOkugKDzC6hCg4HrEeBBQNNDIK954s/view?usp=drivesdk)
