@@ -23,7 +23,22 @@ This project uses the **MVVM (Model-View-ViewModel)** architecture with **Provid
 
 - Uses `ChangeNotifier` from the `provider` package to manage and notify state changes, ensuring the UI reacts to state updates.
 
+## How to Run the App
 
+To run the app locally, follow these steps:
+
+1. **Clone the Repository:**
+
+   ```sh
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   
+2. **Get packages**
+   - Use the command 'flutter pub get' in your terminal.
+
+3. **Run the project**
+   - Use the command 'flutter run' in your terminal.
+   - 
 ### Download APK
 
 You can download the APK from the following link:
