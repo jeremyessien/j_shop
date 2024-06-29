@@ -38,7 +38,7 @@ To run the app locally, follow these steps:
 
 3. **Run the project**
    - Use the command 'flutter run' in your terminal.
-   - 
+   
 ### Download APK
 
 You can download the APK from the following link:
