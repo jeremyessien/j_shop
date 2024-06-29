@@ -9,11 +9,11 @@ This project uses the **MVVM (Model-View-ViewModel)** architecture with **Provid
 
 1. **Model**:
    - Represents the application's data and business logic.
-   - Example: `Product` class.
+   - Example: `Product & Shop` class.
 
 2. **View**:
    - UI components displaying data and handling user interactions.
-   - Examples: `ShopScreen`, `ProductTile`, `ProductDetailsScreen`.
+   - Examples: `ShopScreen`, `ProductTile`, `ProductDetailsScreen`, 'CartSceen'.
 
 3. **ViewModel**:
    - Acts as a bridge between Model and View, managing data preparation and state changes.
