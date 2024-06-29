@@ -22,10 +22,11 @@ class ProductDetailsScreen extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1.0,
               child: Container(
+                padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                     image: NetworkImage(product.image), // Assuming product has an 'image' field
                   ),
                 ),
