@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/light_mode.dart';
+
 class CustomButton extends StatelessWidget {
   final void Function()? onTap;
   final Widget child;
@@ -13,7 +15,7 @@ class CustomButton extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Theme.of(context).colorScheme.primary
+          color: AppColor().primary
         ),
         child: child,
       ),

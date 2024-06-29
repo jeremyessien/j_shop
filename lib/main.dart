@@ -1,16 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:j_shop/screens/cart_screen.dart';
-import 'package:j_shop/screens/home_screen.dart';
+import 'package.dart';
 
-import 'model/shop.dart';
-import 'screens/intro_screen.dart';
-import 'package:provider/provider.dart';
-void main() {
+void main() async {
+  // await dotenv.load(fileName: ".env");
+
   runApp(
-      ChangeNotifierProvider(
-    create: (context) => Shop(),
-        child: const MyApp(),
-  ));
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const Intro(),
-      theme: ThemeData.light(),
-      routes: {
-        '/intro_screen' : (context) => const Intro(),
-        '/home_screen' : (context) => const HomeScreen(),
-        '/cart_screen' : (context) => const CartScreen(),
-      },
+    return MultiProvider(
+      providers: allProviders,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const Intro(),
+        routes: {
+          '/intro_screen': (context) => const Intro(),
+          '/cart_screen': (context) => const CartScreen(),
+          '/shop_screen': (context) => const ShopScreen(),
+        },
+      ),
     );
   }
 }
